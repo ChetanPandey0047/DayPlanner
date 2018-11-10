@@ -138,6 +138,9 @@ let UIController = (function() {
             {
                 document.getElementById('task-'+id).classList.add('checked__darken-background');
             }
+            else {
+                document.getElementById('task-'+id).classList.remove('checked__darken-background');
+            }
         }
     }
 
