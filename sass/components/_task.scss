@@ -1,0 +1,91 @@
+.task {
+    width: 70rem;
+    margin: 4rem auto;
+    
+    @include respond(tab-port) {
+        width: 65rem;
+    }
+
+    @include respond(phone) {
+        width: 100%;
+    }
+
+    &__heading {
+        margin-bottom: 3rem;
+    }
+
+    &__item {
+        border-top: 1px solid $color-grey-medium;
+        @include clearfix;
+        padding: 2rem;
+        background-color: lighten($color-grey-light, 5%);
+        border-radius: .5rem;
+        vertical-align: middle;
+        @include respond(phone) {
+            width: 90%;
+        }
+        &--left{
+            float: left;
+            @include clearfix;
+            vertical-align: middle;
+        }        
+
+        &--right {
+            float: right;
+            vertical-align: middle;
+        }
+        
+    }
+
+    &__delete {
+        float: left;
+        font-size: 1.7rem;
+        width: 0;
+        opacity: 0;
+        transition: all .2s ease-in;
+        color: $color-primary-red;
+        cursor: pointer;
+        transform: translateY(.4rem);
+
+        @include respond(phone)
+        {
+            transform: translateY(.6rem)
+        }
+
+    }
+    &__desc {
+        float: right;
+        transition: all .2s ease-in;
+    }
+
+    &__item:hover &__desc {
+        transform: translateX(3rem);
+        @include respond(phone)
+        {
+            transform: translateY(5rem);
+        }
+
+        @include respond(phone) {
+            transform: translateX(1rem);
+        }
+    }
+
+    &__item:hover &__delete {
+        opacity: 1;
+        width: auto;
+    }
+
+    &__reset {
+        width: 70rem;
+        margin: 0 auto;
+        @include clearfix;
+        
+        @include respond(tab-port) {
+            width: 65rem;
+        }
+
+        @include respond(phone) {
+            width: 100%;
+        }
+    }
+}

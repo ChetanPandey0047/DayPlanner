@@ -1,0 +1,64 @@
+.btn
+ {
+    cursor: pointer;
+     &, &:link, &:visited {
+        display: inline-block;
+        text-decoration: none;
+        text-transform: uppercase;
+        border-radius: 5px;
+        transition: all .2s;
+        position: relative;
+        vertical-align: middle;
+     }
+    &--add {
+        font-size: 1.8rem;
+        padding: .7rem 1rem .5rem 1rem;
+        background-color: $color-primary-green;
+        color: $color-white;
+        font-weight: 600;
+        margin-left: 4rem;
+        @include respond(phone) {
+            margin-left: 2rem;
+        }
+
+        &:hover, &:active{
+            color: $color-white;
+            background-color: darken($color-primary-green, 3%);
+        }
+
+        &:active {
+            transform: translateY(2px);
+        }
+    }
+
+    &--reset {
+        &, &:link, &:visited
+        {
+            display: block;
+            padding: .7rem 1.4rem;
+            color: $color-white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            float: right;
+            background-color:  $color-primary-red;
+            transition: all .3s
+        }
+        
+        &:hover, &:active {
+            background-color:  darken($color-primary-red, 5%);
+
+        }
+
+    }
+
+    &__icon {
+        display: inline-block;
+        -webkit-background-clip: text;
+        background-clip: text;
+        vertical-align: middle;
+        background-color: $color-white;
+        color: transparent;
+        padding: 2px;
+        margin-right: .2rem;
+    }
+}

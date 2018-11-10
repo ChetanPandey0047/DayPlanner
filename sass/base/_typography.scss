@@ -1,0 +1,42 @@
+body {
+    font-family: 'Raleway' ,sans-serif;
+}
+
+
+.heading-primary {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    color: $color-white;
+    font-size: 10rem;
+    line-height: 100%;
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: 700;
+    
+    @include respond(phone) {
+        font-size: 9rem;
+        letter-spacing: 2px;
+    }
+    @include respond(-h-tab-port) {
+        font-size: 12rem;
+    }
+}
+
+.heading-secondary {
+    font-family: 'Raleway', sans-serif;
+    font-size: 2.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: $color-primary-green;
+}
+
+.heading-tertiary {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 400;
+    color: darken($color-grey-dark, 18%);
+
+    @include respond(tab-port) {
+        font-size: 2rem;
+    }
+}

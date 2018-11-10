@@ -1,0 +1,44 @@
+@mixin posAbsCenter($transform: translate(-50%, -50%) ) { 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: $transform;
+}
+
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+/*
+0 - 600px       Mobile phones
+600 - 900px     Tablet potrait
+900 - 1200px    Tablet landscape
+
+
+heights
+
+0 - 450         Mobiles potrait;
+*/
+
+@mixin respond($breakpoint) {
+
+    @if($breakpoint == phone) {
+        @media (max-width: 37.5rem) { @content } // >600px
+    }
+
+    @if($breakpoint == tab-port) {
+        @media (max-width: 56.25rem) { @content } // >900px
+    }
+
+    @if($breakpoint == tab-land) {
+        @media (max-width: 75rem) { @content } //>1200px
+    }
+    @if($breakpoint == -h-mobile-port) {
+        @media (max-height: 28.13rem) { @content } // h > 450px
+    }
+
+}

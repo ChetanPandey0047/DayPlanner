@@ -1,0 +1,16 @@
+{
+  "name": "to-do",
+  "version": "1.0.0",
+  "description": "A day planer",
+  "main": "index.html",
+  "scripts": {
+    
+    "compile-sass": "node-sass sass/main.scss css/style.css -w"
+
+  },
+  "author": "chetan pandey",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.9.3"
+  }
+}

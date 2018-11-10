@@ -1,0 +1,33 @@
+.footer {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: $color-grey-dark;
+    text-align: center;
+
+    &__g-link {
+        &, &:link &:visited {
+            text-decoration: none;
+            color: inherit;
+        } 
+    }
+
+    &__highlight {
+        display: inline-block;
+        padding: 4px;
+        transition: all .4s;
+
+        &:hover, &:active {
+            background-color: rgba($color-primary-red, .8);
+            border-radius: 4px;
+            color: $color-white;
+            transform: rotate(4deg) scale(1.1);
+            z-index: 3;
+        }
+    }
+
+    &__github {
+        height: 2rem;
+        vertical-align: middle;
+        margin-left: .5rem;
+    }
+}

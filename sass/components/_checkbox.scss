@@ -1,0 +1,40 @@
+.checkbox {
+    cursor: pointer;
+    position: relative;
+    &__input {
+      display: none;
+    }
+
+    &__custom {
+      height: 2rem;
+      width: 2rem;
+      background-color: $color-grey-light;
+      display: block;
+      cursor: pointer;
+      border: 2px solid $color-grey-medium;
+
+      &::after {
+        content: "";
+        height: 110%;
+        width: 55%;
+        display: block;
+        transition: all .3s;
+        border-bottom: 3px solid $color-primary-green;
+        border-right: 3px solid $color-primary-green;   
+        transform: rotate(40deg);
+        position: absolute;
+        top: -45%;
+        left: 50%; 
+        opacity: 0;
+      }
+    }
+
+    &__input:checked ~ &__custom::after {
+        opacity: 1;
+    }
+    
+    &__input:hover ~ &__custom {
+        background-color: darken($color-grey-light, 5%);
+    }   
+
+  }

@@ -1,0 +1,20 @@
+@import "abstract/variables";
+@import "abstract/mixins";
+
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
+
+@import "components/btn";
+@import "components/checkbox";
+@import "components/get-input";
+@import "components/noTaskScreen";
+@import "components/task";
+
+@import "layout/footer";
+@import "layout/header";
+
+@import "pages/home";
+
+
+

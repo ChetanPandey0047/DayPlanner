@@ -1,0 +1,137 @@
+.header {
+    @include clearfix;
+    height: 60vh;
+
+    @include respond(tab-land) {
+        height: 50vh;              
+    }
+    @include respond(tab-port) {
+        height: 40vh;                 
+    }
+    @include respond(phone) {
+        height: auto;
+        width: 100vw;
+        padding: 0;
+    }
+
+    @include respond(-h-mobile-port) {
+        height: auto;
+        width: 100vw;
+        padding: 0;
+    }
+
+    
+    
+
+    &__left {
+        position: relative;
+        background-image: linear-gradient(to top, rgba($color-black, 0.4), rgba($color-primary-red, .6)) ,url("../images/header-image.jpg");
+        background-size: cover;
+        background-position: top;
+        width: 70%;
+        height: 100%;
+        float: left;
+        padding-top: 7rem;
+        text-align: center;
+        background-blend-mode: hue;
+        vertical-align: middle;
+        @include respond(tab-land) {
+            width: 100%;             
+            padding-top: 4rem; 
+        }
+        @include respond(tab-port) {
+            padding-top: 1rem;
+        }
+        @include respond(phone) {
+            padding-top: 0;
+            padding-bottom: 1rem;
+        }
+        @include respond(-h-mobile-port) {
+            padding-bottom: 3rem;
+        }
+    }
+    
+
+
+    &__heading {
+        display: inline-block;
+        margin-left: 4rem;
+        text-shadow: 0 1rem 4rem rgba($color-black, 0.4);
+
+        @include respond(tab-port) {
+            margin-left: 2rem;                  
+        }
+
+        @include respond(phone) {
+            display: block;
+            margin-left: 0;
+        }
+        @include respond(-h-mobile-port) {
+            transform: translateY(-2rem);
+        }
+       
+    }
+
+    &__logo {
+        display: inline-block;
+        
+        @include respond(tab-port) {
+            transform: scale(.8);                  
+        }
+        @include respond(phone) {
+            transform: scale(.75);  
+            display: block;
+        }
+    }
+
+    &__right {
+        width: 30%;
+        height: 100%;
+        float: right;
+        background-image:linear-gradient(to left, rgba($color-primary-red, 1), rgba($color-black, 1)) ,url("../images/header-img.jpg");
+        background-size: cover;
+        background-position: top;
+        background-blend-mode: soft-light;
+
+        @include respond(tab-land) {
+            display: none;              
+        }
+    }
+    
+    &__heading-break:not(:last-child)
+    {
+        display: none;
+    }
+
+
+    &__quote {
+        font-size: 1.6rem;
+        letter-spacing: 1.1px;
+        word-spacing: .3rem;
+        font-weight: 600;
+        text-align: center;
+        font-style: italic;
+        text-transform: uppercase;
+        padding: 3rem 0;
+        color: darken($color-grey-dark, 10%);
+
+        &-quote {
+            display: inline-block;
+        }
+        &-quote::before {
+            content: "\201F";
+            display: inline-block;
+            font-size: 5rem;
+            font-weight: 500;
+            margin-right: 2rem;
+        }
+
+        &-author {
+            display: inline-block;
+            font-size: 1.3rem;
+            margin-left: 2rem;
+            text-transform: capitalize;
+            color: $color-grey-dark;
+        }
+    }
+}

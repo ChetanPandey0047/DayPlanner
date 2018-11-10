@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,600,700|Raleway:300,300i,400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/icon-styles.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="img/png" href="images/title-logo.png">
+    <title>Day Planer</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header__left">
+            <div class="header__logo">
+                <img src="images/to-do-logo-small.svg" alt="logo" class="header__logo-image">
+            </div>
+            <div class="header__heading">
+                <h1 class="heading-primary">plan your <br class="header__heading-break">day</h1>
+            </div>
+        </div>
+        <div class="header__right">
+            &nbsp;
+        </div>
+    </header>
+    
+    <div class="header__quote" id="quote">
+        <div class="header__quote-quote">
+                Don't let others control your emotions.
+        </div>
+        <div class="header__quote-author">
+            --chetan pandey
+        </div>
+    </div>
+    <main class="main">
+    
+        <!--+++++++++++++++++++++++++
+            GETTING INPUT FROM USER
+        +++++++++++++++++++++++++++-->
+        <section class="section-input" id="inpSec">
+            <div class="get-task">
+                <div class="get-task__inp">
+                    <input type="text" class="get-task__input" id="eventInput" placeholder="Today's task">
+                    <div id="addBtn" class="btn btn--add"><i class="icon-arrows-circle-plus btn__icon"></i> Add</div>
+                    <label for="get-task" class="get-task__label">Today's task</label>
+                </div>
+            </div>
+        </section>
+
+        <!--+++++++++++++++++++++++++
+            EVENTS
+        +++++++++++++++++++++++++++-->
+        <section class="section-tasks">    
+            <div class="task">
+                <div class="task__heading">
+                    <h2 class="heading-secondary">Today's tasks</h2>
+                </div>
+
+                <!--
+                    <div class="task__item">
+                    <div class="task__item--left">
+                        <div class="task__delete" id="deleteBtn">
+                            <i class="icon-arrows-circle-remove"></i>
+                        </div>
+                        <div class="task__desc">
+                            <h3 class="heading-tertiary">Complelte assignment 1</h3>
+                        </div>
+                    </div>
+
+                    <div class="task__item--right">
+                        <div class="checkbox">
+                            <label class="checkbox__label" for="checkboxInput2">
+                                <input type="checkbox" class="checkbox__input" id="checkboxInput2">
+                                <span class="checkbox__custom"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                -->
+            </div>
+
+            <div class="task__reset"><a href="" class="btn btn--reset">Clear List</a></div>
+        </section>
+
+        <!--
+        <div class="no-task-screen">
+            Nothing to do..
+        </div>-->
+    </main>
+    
+    <!--+++++++++++++++++++++++++
+            FOOTER
+    +++++++++++++++++++++++++++-->
+    <footer class="footer">
+        <div class="footer__logo">
+            <img src="images/to-do-logo-mini.svg" alt="" class="footer__logo-img">
+        </div>
+        <div class="footer__desc">
+            Designed and Developed by
+                <a href="https://github.com/ChetanPandey0047" class="footer__g-link" target="_blank">
+                    <span class="footer__highlight">Chetan pandey</span>
+                    <img src="images/github.svg" alt="github logo" class="footer__github">
+                </a>
+        </div>
+    </footer>
+    <script src="script/script.js" defer></script>
+</body>
+</html>

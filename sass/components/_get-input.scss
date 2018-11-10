@@ -1,0 +1,70 @@
+.get-task {
+    display: block;
+    text-align: center;
+
+    @include respond(phone) {
+        text-align: left;
+        padding-left: 1rem;
+        text-align: left;
+    }
+
+    &__inp {
+        display: inline-block;
+        
+        @include respond(phone) {
+            display: block;
+            margin-left: 1rem;
+        }
+    }
+    
+    &__label {
+        text-align: left;
+        display: block;
+        font-size: 1.5rem;
+        margin-top: 1rem;
+        margin-left: 1rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        opacity:  1;
+        transition: all .3s;
+    }
+
+    &__input {
+        font-family: inherit;
+        border: none;
+        border-radius: .5rem;
+        width: 65rem;
+        padding: 1rem 1.7rem;
+        font-size: 1.8rem;
+        box-shadow: 0 .2rem 1rem rgba($color-primary-green, .3);
+        transition: all .3s;
+        vertical-align: middle;
+
+        @include respond(tab-port) {
+            width: 60rem;
+        }
+
+        @include respond(phone) {
+            width: 70%;
+        
+        }
+
+
+        &::placeholder {
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            
+        }
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 .2rem 1rem rgba($color-primary-green, .5);
+        }
+    }
+    
+    &__input:placeholder-shown ~ &__label {
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-4rem);
+    }
+}

@@ -1,0 +1,22 @@
+.no-task-screen {
+    text-align: center;
+    font-size: 2.5rem;
+    background-color: $color-white;
+    color: darken($color-grey-medium, 20%);
+    width: 70rem;
+    margin: 4rem auto;
+    letter-spacing: 3px;
+    word-spacing: 1rem;
+    z-index: 5;
+
+    @include respond(tab-port) {
+        width: 65rem;
+    }
+
+    @include respond(phone) {
+        width: 100%;
+        margin: 0 auto;
+    }
+    padding: 9rem 0;
+    text-transform: uppercase;
+}
