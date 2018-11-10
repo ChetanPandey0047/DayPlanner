@@ -1,4 +1,4 @@
-## Daily Planer
+## Daily Planner
 
 A fully responsive simple web app
 
