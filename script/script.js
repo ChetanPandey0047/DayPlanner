@@ -2,7 +2,7 @@ let dataController = (function() {
 
     let quotes = function(quote, author) {
         this.quote = quote;
-        this.author = author
+        this.author = author;
     };
 
     let quoteList = new Array();
@@ -19,16 +19,30 @@ let dataController = (function() {
     let data = function() {
         this.desc = '';
         this.id = -1;
+        this.checked = false;
     };
     let taskItem;
+
+    if(localStorage.getItem('taskList') !== null)
+    {
+        taskList = JSON.parse(localStorage.getItem('taskList'));
+    }
+
+    let findItem = function(ID)
+    {
+        for(let i = 0; i < taskList.length; ++i)
+        {
+            if(taskList[i].id === Number(ID))
+            {
+                itemIndex = i;
+                break;
+            }
+        }
+        return itemIndex;
+    }
     return {
         storeItem(inputVal) {
             taskItem = new data();
-
-            if(localStorage.getItem('taskList') !== null)
-            {
-                taskList = JSON.parse(localStorage.getItem('taskList'));
-            }
 
             if(taskList.length !== 0)
             {
@@ -44,16 +58,7 @@ let dataController = (function() {
         },
 
         removeItem(ID) {
-            let itemIndex;
-            taskList = JSON.parse(localStorage.getItem('taskList'));
-            for(let i = 0; i < taskList.length; ++i)
-            {
-                if(taskList[i].id === Number(ID))
-                {
-                    itemIndex = i;
-                    break;
-                }
-            }
+            let itemIndex = findItem(ID);
             taskList.splice(itemIndex, 1);
             if(taskList.length === 0) 
             {
@@ -66,6 +71,13 @@ let dataController = (function() {
 
         getQuote(quoteIndex) {
             return quoteList[quoteIndex];
+        },
+
+        checkbox(isChecked, id) {
+            let itemIndex = findItem(id);
+            taskList[itemIndex].checked = !taskList[itemIndex].checked;
+            localStorage.setItem('taskList', JSON.stringify(taskList));
+            return taskList[itemIndex].checked;
         }
     }
 })();
@@ -78,7 +90,8 @@ let UIController = (function() {
         deleteBtn: '.task__delete-btn',
         container: '.task',
         quote: '.header__quote-quote',
-        author: '.header__quote-author'
+        author: '.header__quote-author',
+        checkbox: '.checkbox__label'
     }
 
     return {
@@ -100,10 +113,13 @@ let UIController = (function() {
 
         addTaskItem(data) {
             document.querySelector(DOMEle.sectionTasks).style.display = 'block';
-            let taskItem = `<div class="task__item" id="task-${data.id}"><div class="task__item--left"><div class="task__delete" id="deleteBtn"><i class="icon-arrows-circle-remove"></i></div><div class="task__desc"><h3 class="heading-tertiary">${data.desc}</h3></div></div><div class="task__item--right"><div class="checkbox"><label class="checkbox__label" for="${data.id}"><input type="checkbox" class="checkbox__input" id="${data.id}"><span class="checkbox__custom"></span></label></div></div></div>`;
+            let taskItem = `<div class="task__item" id="task-${data.id}"><div class="task__item--left"><div class="task__delete" id="deleteBtn"><i class="icon-arrows-circle-remove"></i></div><div class="task__desc"><h3 class="heading-tertiary">${data.desc}</h3></div></div><div class="task__item--right"><div class="checkbox"><input type="checkbox" class="checkbox__input" id="${data.id}"><label class="checkbox__label" for="${data.id}"><span class="checkbox__custom"></span></label></div></div></div>`;
 
             document.querySelector('.task').insertAdjacentHTML('beforeend', taskItem);
             document.getElementById('eventInput').value = '';
+            document.getElementById(data.id).checked = data.checked;
+
+            this.checkbox(data.checked, data.id);
         },
 
         deleteTaskItem(ItemID) {
@@ -114,6 +130,14 @@ let UIController = (function() {
         {
             document.querySelector(DOMEle.quote).textContent = quote.quote;
             document.querySelector(DOMEle.author).textContent = quote.author;
+        },
+
+        checkbox(isChecked, id)
+        {
+            if(isChecked)
+            {
+                document.getElementById('task-'+id).classList.add('checked__darken-background');
+            }
         }
     }
 
@@ -201,7 +225,21 @@ let controller = (function(dataCtrl, UIctrl) {
 
         // DELETING ONE ITEM FROM LIST.
         document.querySelector(DOMEle.container).addEventListener('click', deleteItem);
+
+        // WEATHER ITEM IS CHECKED OR NOT.
+        document.querySelector(DOMEle.container).addEventListener('change', checkbox);
+    }
+
+    let checkbox = function(e) {
+        let isChecked, id;
+        isChecked = e.target.checked;
+        id = e.target.id;        
         
+        // CHANGE DATA STRUCTURE.
+        isChecked = dataCtrl.checkbox(isChecked, id);
+
+        // UPDATE UI.
+        UIctrl.checkbox(isChecked, id);
 
     }
     return {

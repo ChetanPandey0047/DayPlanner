@@ -29,12 +29,11 @@
       }
     }
 
-    &__input:checked ~ &__custom::after {
+    &__input:checked + &__label > &__custom::after {
         opacity: 1;
     }
     
-    &__input:hover ~ &__custom {
+    &__input:hover + &__label > &__custom {
         background-color: darken($color-grey-light, 5%);
     }   
-
   }

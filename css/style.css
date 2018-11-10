@@ -15,7 +15,7 @@ heights
 
 html {
   font-size: 62.5%; }
-  @media (max-width: 75em) {
+  @media (max-width: 75rem) {
     html {
       font-size: 59.375%; } }
   @media (max-width: 56.25rem) {
@@ -24,7 +24,7 @@ html {
 
 body {
   padding: 2rem; }
-  @media (max-width: 75em) {
+  @media (max-width: 75rem) {
     body {
       padding: 0; } }
 
@@ -63,6 +63,9 @@ body {
 
 .-u-margin-left-medium {
   margin-left: 1rem; }
+
+.checked__darken-background {
+  background-color: #edfbf3 !important; }
 
 .btn {
   cursor: pointer; }
@@ -135,9 +138,9 @@ body {
       top: -45%;
       left: 50%;
       opacity: 0; }
-  .checkbox__input:checked ~ .checkbox__custom::after {
+  .checkbox__input:checked + .checkbox__label > .checkbox__custom::after {
     opacity: 1; }
-  .checkbox__input:hover ~ .checkbox__custom {
+  .checkbox__input:hover + .checkbox__label > .checkbox__custom {
     background-color: #dde4e6; }
 
 .get-task {
@@ -314,7 +317,7 @@ body {
     content: "";
     display: table;
     clear: both; }
-  @media (max-width: 75em) {
+  @media (max-width: 75rem) {
     .header {
       height: 50vh; } }
   @media (max-width: 56.25rem) {
@@ -342,7 +345,7 @@ body {
     text-align: center;
     background-blend-mode: hue;
     vertical-align: middle; }
-    @media (max-width: 75em) {
+    @media (max-width: 75rem) {
       .header__left {
         width: 100%;
         padding-top: 4rem; } }
@@ -387,7 +390,7 @@ body {
     background-size: cover;
     background-position: top;
     background-blend-mode: soft-light; }
-    @media (max-width: 75em) {
+    @media (max-width: 75rem) {
       .header__right {
         display: none; } }
   .header__heading-break:not(:last-child) {
